@@ -245,5 +245,7 @@ Addressing duplicates contributes to maintaining a trustworthy and efficient dat
 
 ### Case Study 2: Investigating Metric Spike
 #### Dataset 
+
+[Users DataSet](https://docs.google.com/spreadsheets/d/1NY9W5fW2DU3Db5uEAi0allOk9G8M-hxHokZ3CLpjQbA/edit#gid=492277679)
 ### Process
 ### Conclusion
