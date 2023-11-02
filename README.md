@@ -200,8 +200,10 @@ from CTE;
   <li>By developing targeted marketing campaigns in different languages, the company can increase engagement, customer retention, and user satisfaction.
 </li>
   <br>
-  <i>Distribution of Percentage Share of Each Language:</i>
-    ![donut chart](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/07201260-2c38-4565-8d54-60e42c73506c)
+  <i>Distribution of Percentage Share of Each Language:</i> <br>
+     
+  ![donut chart](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/4757c60b-ecac-4fc1-b91f-df644ef6942d)
+
 <br>
     <li>A donut chart visually represents the distribution of percentage share for each language, emphasizing the dominant languages and revealing potential opportunities for targeted marketing efforts.</li>
  
@@ -414,6 +416,7 @@ from events
 group by week_Num;
 ```
 [User engagement as per week](https://docs.google.com/spreadsheets/d/1fasyPXb_HOtG_iLDEeP2DzbyDJFjIGSVA1wLFTZh8iU/edit#gid=1644782342)
+
 <br>
 <ul>
   <i>Methodology:</i>
@@ -435,10 +438,12 @@ group by week_Num;
   <li>Detecting sudden changes in engagement enables the company to address potential issues or capitalize on positive trends.</li>
   <br>
   
-  <i>Weekly User Engagement Visualization<i>
-  <br>
-    ![weekly user engagement](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/02ba9218-c69c-4f8b-9ec9-21c4d82d0087)
+  <i>Weekly User Engagement Visualization<i><br>
 
+ ![weekly user engagement](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/e187d66c-a887-42ce-829e-e519dff8c5bf)
+
+
+<br>
   <i>Significant Observation:<i><br>
   Notably, week_num 17 onwards experienced a drastic increase in user engagement. However, a sudden decrease in engagement is observed towards the end of the week.
   
@@ -655,7 +660,11 @@ from CTE;
 </li>
   <br>
   <i>Email Engagement Metrics:</i>
-  image <br>
+   <br>
+
+![Email Engagement](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/5e712ce2-c8d2-4a92-aca6-e9f28ebe817f)
+
+<br>
   <li>The analysis revealed an email opened rate of 33.58% and an email clicked rate of 14.79%.</li>
   <i>Conclusion:</i><br>
   <li>The "Email Engagement Analysis" underscores the significance of email engagement metrics in evaluating communication effectiveness.
