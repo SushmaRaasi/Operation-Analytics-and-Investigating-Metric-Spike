@@ -3,7 +3,7 @@
 - [Project Description](#project-description)
 - [Problem](#problem)
 - [Approach](#approach)
-- [Case Study 1: Job Data Analysis](#case-study-1-:-job-data-analysis)
+- [Case Study 1 Job Data Analysis](#case-study-1-job-data-analysis)
     - [Dataset](#dataset)
     - [Process](#process)
     - [Insights](#insights)
@@ -12,6 +12,8 @@
           - [Language Share Analysis](#language-share-analysis)
           - [Duplicate rows Detection](#duplicate-rows-detection)
 - [Case Study 2 Investigating Metric Spike](#case-study-2-investigating-metric-spike)
+      - [Dataset](#dataset)
+      - [Data Cleaning , Exploring, Manipulation  for USERS Table](#data-cleaning-exploring-manipulation-for-users-table)
       
   
 
@@ -29,7 +31,7 @@
 ### Approach
 <p>This project is developed using MySQL Workbench. First I have created a  database by using a dataset file which was provided by the company. Next step is by loading the data into SQL Workbench then performing the analysis and finding the information that will help the OPS Team , Support Team, Marketing Team etc. to understand questions like - Why is there a dip in daily engagement? Why have sales taken a dip ? etcQuestions like these must be answered daily and for that it’s very important to investigate metric spikes.</p>
 
-### Case Study 1: Job Data Analysis
+### Case Study 1 Job Data Analysis
 #### Dataset
 [Job Data Dataset](https://docs.google.com/spreadsheets/d/1fasyPXb_HOtG_iLDEeP2DzbyDJFjIGSVA1wLFTZh8iU/edit#gid=773876311)
 
@@ -272,7 +274,7 @@ Addressing duplicates contributes to maintaining a trustworthy and efficient dat
 3) [Email Events](https://docs.google.com/spreadsheets/d/1CL7H8Z-vK9XZvA2s3pYRqY31eG3eipEQZDVfXFqwWWA/edit#gid=1440450547)
 <br>
 
-<b> Data Cleaning , Exploring, Manipulation  for USERS Table <b>
+##### Data Cleaning , Exploring, Manipulation  for USERS Table 
 ```SQL
 create table users(
 user_id int,
