@@ -13,10 +13,14 @@
           - [Duplicate rows Detection](#duplicate-rows-detection)
 - [Case Study 2 Investigating Metric Spike](#case-study-2-investigating-metric-spike)
       - [Dataset](#dataset)
-      - [Data Cleaning,Exploring,Manipulation for USERS Table](#data-cleaning-exploring-manipulation-for-users-table)
-      
-  
-
+      - [Data Cleaning Exploring Manipulation for 3 Tables ](#data-cleaning-exploring-manipulation-for-3-tables)
+      - [Insights](#insights)
+          - [Weekly User Engagement](#weekly-user-engagement)
+          - [User Growth Analysis](#user-growth-analysis)
+          - [Weekly Retention Analysis](#weekly-retention-analysis)
+          - [Weekly Engagement Per Device](#weekly-engagement-per-device)
+          - [Email Engagement Analysis](#email-engagement-analysis)
+- [Conclusion](#conclusion)
 
 ### Project Description
 <p>Operation Analytics is the analysis done for the complete end to end operations of a company. With the help of this, the company then finds the areas on which it must improve upon. We  work closely with the ops team, support team, marketing team, etc and help them derive insights out of the data they collect.</p>
@@ -274,7 +278,7 @@ Addressing duplicates contributes to maintaining a trustworthy and efficient dat
 3) [Email Events](https://docs.google.com/spreadsheets/d/1CL7H8Z-vK9XZvA2s3pYRqY31eG3eipEQZDVfXFqwWWA/edit#gid=1440450547)
 <br>
 
-##### Data Cleaning , Exploring, Manipulation  for USERS Table 
+##### Data Cleaning Exploring Manipulation for 3 Tables 
 ```SQL
 create table users(
 user_id int,
@@ -397,7 +401,8 @@ change column temp_occurred_at occurred_at datetime;
 ```
 ### Insights
 
-<b>1) Weekly User Engagement:</b>
+##### Weekly User Engagement
+</b>
 <p>Understanding user engagement patterns is crucial for optimizing user experiences. To achieve this, an analysis was performed to calculate the number of active users on a weekly basis.</p>
 
 ```SQL
@@ -427,7 +432,8 @@ group by week_Num;
   <li>Detecting sudden changes in engagement enables the company to address potential issues or capitalize on positive trends.</li>
   <br>
   
-  <i>Weekly User Engagement Visualization:<i><br>
+  <i>Weekly User Engagement Visualization<i>
+  <br>
     image
   <i>Significant Observation:<i><br>
   Notably, week_num 17 onwards experienced a drastic increase in user engagement. However, a sudden decrease in engagement is observed towards the end of the week.
@@ -439,7 +445,7 @@ group by week_Num;
     <br>
 </ul>
 <br>
-<b>2) User Growth Analysis</b>
+##### User Growth Analysis
 <p>Analyzing user growth over time provides insights into the company's trajectory and potential opportunities. An analysis was conducted to understand the growth of users and its implications.</p>
 
 ```SQL
@@ -482,7 +488,7 @@ The analysis clearly indicates that user growth has been consistently increasing
     <li>The insights gained from analyzing user growth trends contribute to strategic decision-making for sustained success.</li>
 </ul>
 <br>
-<b>3) Weekly Retention Analysis</b>
+##### Weekly Retention Analysis
 <p>Understanding user retention is pivotal for evaluating the long-term engagement of users with the company's products or services. An analysis was conducted to calculate and assess the weekly retention rate of users.</p>
     
 ```SQL
@@ -553,7 +559,7 @@ Based on the analysis, the retention rates exhibit a decreasing trend, suggestin
 </ul>
 <br>
 
-<b>4) Weekly Engagement Per Device :</b>
+##### Weekly Engagement Per Device
 <br>
 <p>Understanding user engagement across different devices is essential for tailoring experiences to user preferences. An analysis was conducted to calculate the number of users engaging with the service weekly on various devices.</p>
 
@@ -595,7 +601,7 @@ Based on the analysis, mobile devices exhibit the highest engagement levels, whi
 </li>
 </ul>
 
-<b>5) Email Engagement Analysis:</b>
+##### Email Engagement Analysis
 <br>
 <p>Understanding email engagement metrics is crucial for evaluating the effectiveness of email campaigns and communication strategies. An analysis was conducted to assess key email engagement metrics and their implications.</p>
 
