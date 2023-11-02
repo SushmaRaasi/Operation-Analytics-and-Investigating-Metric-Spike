@@ -178,7 +178,7 @@ from CTE;
 </li>
   <br>
   <i>Distribution of Percentage Share of Each Language:</i><li>A donut chart visually represents the distribution of percentage share for each language, emphasizing the dominant languages and revealing potential opportunities for targeted marketing efforts.</li>
-  I image Donut chart
+ 
   <br>
   <i>Conclusion:</i><br>
   <li>The "Language Share Analysis" underscores the value of data-driven insights in crafting effective marketing strategies.
@@ -246,6 +246,381 @@ Addressing duplicates contributes to maintaining a trustworthy and efficient dat
 ### Case Study 2: Investigating Metric Spike
 #### Dataset 
 
-[Users DataSet](https://docs.google.com/spreadsheets/d/1NY9W5fW2DU3Db5uEAi0allOk9G8M-hxHokZ3CLpjQbA/edit#gid=492277679)
-### Process
+1)[Users DataSet](https://docs.google.com/spreadsheets/d/1NY9W5fW2DU3Db5uEAi0allOk9G8M-hxHokZ3CLpjQbA/edit#gid=492277679)
+<br>
+2) [Events Dataset](https://docs.google.com/spreadsheets/d/1wKQx1-Jorb3izZiF0FMV03Cbxg5ef0y45B9EbiafHDY/edit#gid=1862131687)
+<br>
+3) [Email Events](https://docs.google.com/spreadsheets/d/1CL7H8Z-vK9XZvA2s3pYRqY31eG3eipEQZDVfXFqwWWA/edit#gid=1440450547)
+<br>
+
+<b> Data Cleaning , Exploring, Manipulation  for USERS Table <b>
+```SQL
+create table users(
+user_id int,
+created_at varchar(100),
+company_id int,
+language varchar(100),
+activated_at varchar(100),
+state varchar(50)
+);
+```
+```SQL
+show variables like 'secure_file_priv';
+
+load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/users.csv'
+into table users
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
+```
+```SQL
+alter table users
+add column temp_created_at datetime;
+
+update users
+set temp_created_at = str_to_date(created_at,'%d-%m-%Y %H:%i');
+```
+```SQL
+alter table users
+drop column created_at;
+
+alter table users
+change column temp_created_at created_at datetime;
+```
+```SQL
+alter table users
+change column temp_created_at created_at datetime;
+```
+```SQL
+alter table users
+add column temp_activated_at datetime;
+
+update users
+set temp_activated_at = str_to_date(activated_at,'%d-%m-%Y %H:%i');
+
+alter table users
+drop column activated_at;
+
+alter table users
+change column temp_activated_at activated_at datetime;
+```
+<b> Data Cleaning , Exploring, Manipulation  for EVENTS Table <b>
+```SQL
+create table events(
+user_id int,
+occurred_at varchar(100),
+event_type varchar(100),
+event_name varchar(100),
+location varchar(100),
+device varchar(100),
+user_type int
+);
+
+show variables like 'secure_file_priv';
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/events.csv'
+INTO TABLE events
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+alter table events
+add column temp_occurred_at datetime;
+
+select * from events;
+
+update events
+set temp_occurred_at = str_to_date(occurred_at, '%d-%m-%Y %H:%i');
+
+alter table events
+drop column occurred_at;
+
+alter table events
+change column temp_occurred_at occurred_at datetime;
+```
+<b> Data Cleaning , Exploring, Manipulation  for EMAIL_EVENTS Table <b>
+```SQL
+create table email_events(
+user_id int,
+occurred_at varchar(100),
+action varchar(100),
+user_type int
+);
+
+show variables like 'secure_file_priv';
+
+load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/email_events.csv'
+into table email_events
+fields terminated by ','
+enclosed by '"'
+lines terminated by '\n'
+ignore 1 rows;
+
+select * from email_events;
+
+alter table email_events
+add column temp_occurred_at datetime;
+
+
+update email_events
+set temp_occurred_at = str_to_date(occurred_at, '%d-%m-%Y %H:%i');
+
+alter table email_events
+drop column occurred_at;
+
+alter table email_events
+change column temp_occurred_at occurred_at datetime;
+```
+### Insights
+
+<b>1) Weekly User Engagement:</b>
+<p>Understanding user engagement patterns is crucial for optimizing user experiences. To achieve this, an analysis was performed to calculate the number of active users on a weekly basis.</p>
+
+```SQL
+select extract(week from occurred_at) as week_Num, count(distinct user_id) as count_of_user_engagement
+from events
+group by week_Num;
+```
+[User engagement as per week](https://docs.google.com/spreadsheets/d/1fasyPXb_HOtG_iLDEeP2DzbyDJFjIGSVA1wLFTZh8iU/edit#gid=1644782342)
+<br>
+<ul>
+  <i>Methodology:</i>
+  <li>The weekly user engagement analysis utilized the dataset containing user engagement data.
+</li>
+  <li>User activity timestamps were processed to identify active users for each week.</li>
+  <br>
+  
+  <i>Findings:</i><br>
+  <li>The analysis unveiled the number of users who engaged with the platform on a weekly basis.
+</li>
+  <li>Patterns in user engagement were observed, highlighting changes in user activity over time.
+</li>
+  <li>Sudden decreases or increases in weekly user engagement were identified for further investigation.</li>
+  <br>
+  <i>Insights:</i><br>
+  <li>Tracking weekly user engagement patterns informs the company about user behavior trends and helps align resource allocation.
+</li>
+  <li>Detecting sudden changes in engagement enables the company to address potential issues or capitalize on positive trends.</li>
+  <br>
+  
+  <i>Weekly User Engagement Visualization:<i><br>
+    image
+  <i>Significant Observation:<i><br>
+  Notably, week_num 17 onwards experienced a drastic increase in user engagement. However, a sudden decrease in engagement is observed towards the end of the week.
+  
+  <i>Conclusion:</i><br>
+    <li>The "Weekly User Engagement" analysis highlights the role of data insights in optimizing user experiences.
+</li>
+    <li>Monitoring weekly user engagement patterns empowers the company to adapt strategies for user engagement and retention.</li>
+    <br>
+</ul>
+<br>
+<b>2) User Growth Analysis</b>
+<p>Analyzing user growth over time provides insights into the company's trajectory and potential opportunities. An analysis was conducted to understand the growth of users and its implications.</p>
+
+```SQL
+with CTE as 
+(select extract(year from activated_at) as years,
+extract(week from activated_at) as week_num,
+count(distinct user_id) as no_of_users
+from users
+group by 1,2)
+
+select *,
+sum(no_of_users) over(rows between unbounded preceding and current row) as Growth
+from CTE;
+```
+[Growth Analysis](https://docs.google.com/spreadsheets/d/1fasyPXb_HOtG_iLDEeP2DzbyDJFjIGSVA1wLFTZh8iU/edit#gid=1829199637)
+<br>
+<ul>
+  <i>Methodology:</i><br>
+  <li>The user growth analysis utilized historical user data from the dataset.</li>
+  <li>User counts were aggregated over different time periods to assess growth trends.</li>
+  <br>
+  <i>Findings:</i><br>
+  <li>The analysis revealed a positive trend in user growth over the specified time frame.</li>
+  <li>Patterns in user acquisition were identified, reflecting the company's ability to attract new users.
+</li>
+  <li>Growth trends were analyzed in relation to external events, marketing efforts, or product enhancements.</li>
+  <br>
+  <i>Insights:</i><br>
+  <li>Observing positive user growth underscores the company's ability to appeal to new audiences.</li>
+  <li>Tracking user acquisition patterns provides insights into the effectiveness of strategies to attract and retain users.</li>
+  <br>
+  <i>User Growth Visualization:<i>
+    image
+    <p><b>Positive Trend Observation:</b>
+The analysis clearly indicates that user growth has been consistently increasing over the observed period.
+</p>
+  <i>Conclusion:</i><br>
+    <li>The "User Growth Analysis" emphasizes the role of data in tracking and understanding company growth.
+</li>
+    <li>The insights gained from analyzing user growth trends contribute to strategic decision-making for sustained success.</li>
+</ul>
+<br>
+<b>3) Weekly Retention Analysis</b>
+<p>Understanding user retention is pivotal for evaluating the long-term engagement of users with the company's products or services. An analysis was conducted to calculate and assess the weekly retention rate of users.</p>
+    
+```SQL
+(with CTE1 as
+(
+with CTE as 
+(
+With cte as 
+(
+select SU.*,E.*
+from
+(select distinct user_id as sign_up_users,
+extract(week from occurred_at) as sign_up_week
+from events
+where event_type = "signup_flow" and
+extract(week from occurred_at) = 17) as SU
+inner join
+(select distinct user_id as users,
+extract(week from occurred_at) as week_eng_num
+from events
+where event_type = "engagement") as E
+on SU.sign_up_users = E.users
+)
+select sign_up_users as total_users ,sign_up_week,week_eng_num,
+(week_eng_num - sign_up_week) as retention_week
+from cte)
+select total_users,
+case 
+when retention_week = 0 then "RW0"
+when retention_week = 1 then "RW1"
+when retention_week = 2 then "RW2"
+when retention_week = 3 then "RW3"
+when retention_week = 4 then "RW4"
+when retention_week = 5 then "RW5"
+else "RW5+"
+end "RW"
+from CTE)
+select RW,count(distinct total_users) as count
+from CTE1
+group by RW
+order by RW);
+```
+<ul>
+  <i>Methodology:</i><br>
+  <li>The weekly retention analysis utilized user engagement data to track user activity over time.</li>
+  <li>A cohort-based approach was employed, grouping users based on the week of their initial engagement.</li>
+  <li>Retention rates were calculated for each cohort week to analyze user engagement over multiple weeks.</li>
+  <br>
+  <i>Findings:</i><br>
+  <li>The analysis provided insights into the retention rates of users over different weeks.</li>
+  <li>Patterns in user engagement over time were observed, indicating whether users remained engaged or dropped off.
+</li>
+  <li>The analysis highlighted trends in user retention, enabling the identification of potential retention challenges.</li>
+  <br>
+  <i>Insights:</i><br>
+  <li>Retention rate trends reveal the company's ability to maintain user interest and engagement over extended periods.</li>
+  <li>Understanding when and why users drop off can guide strategies to improve user experiences and increase retention.</li>
+  <i>Weekly Retention Visualization:</i>
+  image
+  <p><b>Retention Trend Observation:</b>
+Based on the analysis, the retention rates exhibit a decreasing trend, suggesting the need for further investigation into potential retention strategies.
+</p>
+  <br>
+  <i>Conclusion:</i><br>
+  <li>The "Weekly Retention Analysis" underscores the significance of tracking user engagement beyond initial interactions.</li>
+  <li>The insights gained contribute to developing strategies that enhance user retention and drive long-term customer loyalty.
+</li>
+</ul>
+<br>
+
+<b>4) Weekly Engagement Per Device :</b>
+<br>
+<p>Understanding user engagement across different devices is essential for tailoring experiences to user preferences. An analysis was conducted to calculate the number of users engaging with the service weekly on various devices.</p>
+
+```SQL
+select year(occurred_at) as Years,
+week(occurred_at) as week_num,
+device,
+count(distinct user_id) as count
+from events
+where event_type = "engagement"
+group by 1,2,3;
+```
+[Count of Weekly engagement per device](https://docs.google.com/spreadsheets/d/1fasyPXb_HOtG_iLDEeP2DzbyDJFjIGSVA1wLFTZh8iU/edit#gid=973856305)
+<br>
+<ul>
+  <i>Methodology:</i><br>
+    <li>The weekly engagement per device analysis utilized user engagement data to track device-specific interactions.
+</li>
+<li>User activity timestamps were categorized by device type to determine weekly engagement numbers.</li>
+<br>
+  <i>Findings:</i><br>
+  <li>The analysis unveiled the distribution of user engagement across different devices on a weekly basis.</li>
+  <li>Patterns in device usage were identified, revealing user preferences for specific devices during certain periods.</li>
+  <li>The analysis highlighted any significant variations in engagement per device type.</li>
+  <br>
+  
+  <i>Insights:</i><br>
+  <li>Understanding device-specific engagement patterns allows the company to optimize experiences for users across different platforms.</li>
+  <li>Identifying spikes or dips in engagement on specific devices can guide resource allocation and user experience improvements.</li>
+  <br>
+  <i>Weekly Engagement Per Device Visualization:</i>
+  image
+  <i>Device Preference Observation:</i>
+Based on the analysis, mobile devices exhibit the highest engagement levels, while desktop engagement shows fluctuations over time.
+  <i>Conclusion:</i><br>
+  <li>The "Weekly Engagement Per Device" analysis underscores the importance of catering to user preferences across devices.
+</li>
+<li>By recognizing device-specific engagement patterns, the company can enhance user experiences and drive higher engagement rates.
+</li>
+</ul>
+
+<b>5) Email Engagement Analysis:</b>
+<br>
+<p>Understanding email engagement metrics is crucial for evaluating the effectiveness of email campaigns and communication strategies. An analysis was conducted to assess key email engagement metrics and their implications.</p>
+
+```SQL
+with CTE as 
+(
+select 
+*,
+case 
+when action in ('sent_weekly_digest','sent_reengagement_email') then 'email sent'
+when action = 'email_open' then 'email open'
+when action = 'email_clickthrough' then 'email clickthrough'
+else 'No Action'
+end Email_Action
+from email_events
+)
+select 
+(sum(case when Email_Action = 'email open' then 1 else 0 end ) / sum(case when Email_Action = 'email sent' then 1 else 0 end)) * 100 as 'Email Sent',
+(sum(case when Email_Action = 'email clickthrough' then 1 else 0 end ) / sum(case when Email_Action = 'email sent' then 1 else 0 end)) * 100 as 'Email clickthrough'
+from CTE;
+```
+<ul>
+  <i>Methodology:</i><br>
+  <li>The email engagement analysis utilized email event data to evaluate user interactions with emails.</li>
+  <li>Key email engagement metrics, including email opened and email clicked, were extracted from the dataset.</li>
+  <br>
+  <i>Findings:</i><br>
+  <li>The analysis provided insights into user engagement with email communications.</li>
+  <li>Email opened and email clicked metrics were examined to assess user interactions.</li>
+  <li>The analysis identified trends in email engagement, revealing the success of email campaigns.</li>
+  <br>
+  <i>Insights:</i><br>
+  <li>Email engagement metrics indicate the effectiveness of communication strategies and user interest in email content.</li>
+  <li>Understanding the ratio of email opened to email clicked offers insights into the quality of email content and user engagement levels.
+</li>
+  <br>
+  <i>Email Engagement Metrics:</i>
+  image <br>
+  <li>The analysis revealed an email opened rate of 33.58% and an email clicked rate of 14.79%.</li>
+  <i>Conclusion:</i><br>
+  <li>The "Email Engagement Analysis" underscores the significance of email engagement metrics in evaluating communication effectiveness.
+</li>
+  <li>The insights gained contribute to refining email strategies, optimizing content, and fostering user engagement.
+</li>
+  <br>
+</ul>
+<br>
 ### Conclusion
+<p>Operational Analytics tackles the problem by synchronizing real time data. Operational Analytics has the capability to aggregate data from multiple data sources into a cumulative, organized, actionable Solution capable of delivering analytical models in real-time to create individual customer profiles and a holistic view of operations for a company. This guarantees that your operational routines and systems are used efficiently. Whenever utilized correctly, operational analytics can achieve a significant positive effect on our general public and world everywhere and increment the general efficiency of specific areas.</p>
