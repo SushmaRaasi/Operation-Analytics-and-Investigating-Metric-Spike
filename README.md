@@ -1,5 +1,16 @@
 # Operation-Analytics-and-Investigating-Metric-Spike
 
+- [Project Description](#project-description)
+- [Problem](#problem)
+- [Approach](#approach)
+- [Case Study 1: Job Data Analysis](#case-study-1-:-job-data-analysis)
+    - [Dataset](#dataset)
+    - [Process](#process)
+    - [Insights](#insights)
+        - [1) Jobs Reviewed Over Time:](#1-jobs-reviewed-over-time:)
+  
+
+
 ### Project Description
 <p>Operation Analytics is the analysis done for the complete end to end operations of a company. With the help of this, the company then finds the areas on which it must improve upon. We  work closely with the ops team, support team, marketing team, etc and help them derive insights out of the data they collect.</p>
 <p>Being one of the most important parts of a company, this kind of analysis is further used to predict the overall growth or decline of a company’s fortune. It means better automation, better understanding between cross-functional teams, and more effective workflows.</p>
@@ -187,6 +198,7 @@ from CTE;
 </li>
 </ul>
 <br>
+
 [Percentage Share of each Language](https://docs.google.com/spreadsheets/d/1fasyPXb_HOtG_iLDEeP2DzbyDJFjIGSVA1wLFTZh8iU/edit#gid=1781774857)
 <br>
 <br>
@@ -622,5 +634,6 @@ from CTE;
   <br>
 </ul>
 <br>
+
 ### Conclusion
 <p>Operational Analytics tackles the problem by synchronizing real time data. Operational Analytics has the capability to aggregate data from multiple data sources into a cumulative, organized, actionable Solution capable of delivering analytical models in real-time to create individual customer profiles and a holistic view of operations for a company. This guarantees that your operational routines and systems are used efficiently. Whenever utilized correctly, operational analytics can achieve a significant positive effect on our general public and world everywhere and increment the general efficiency of specific areas.</p>
