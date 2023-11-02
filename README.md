@@ -7,7 +7,9 @@
     - [Dataset](#dataset)
     - [Process](#process)
     - [Insights](#insights)
-        - [1) Jobs Reviewed Over Time:](#1-jobs-reviewed-over-time:)
+          - [Jobs Reviewed Over Time](#jobs-reviewed-over-time)
+          - [Throughput](#throughput)
+      
   
 
 
@@ -70,7 +72,7 @@ select * from job_data;
 Here I am trying to use the LOAD DATA INFILE statement in MySQL to load data from a CSV file into the job_data table, while also transforming the ds column using STR_TO_DATE.
 
 #### Insights
-<b>1) Jobs Reviewed Over Time:</b><br>
+##### Jobs Reviewed Over Time
 <p>To better understand the patterns of job reviews, an analysis was conducted to calculate the number of jobs reviewed per hour for each day in November 2020. This analysis aimed to shed light on peak reviewing hours, which can facilitate improved resource allocation and operational efficiency in processing job applications.</p>
 
 ``` SQL
@@ -108,7 +110,7 @@ The analysis indicates that the average number of jobs reviewed per day is less 
 <li>Understanding the temporal distribution of job reviews empowers the company to align its processes with user behavior, resulting in improved efficiency and customer satisfaction.</li>
  </ul> <br>
 
- <b>2) Throughput:</b> <br>
+ ##### Throughput 
  <p>To assess the efficiency of the company's processes, a throughput analysis was conducted to calculate the 7-day rolling average of throughput. This analysis aimed to identify trends in throughput over time and offer insights for optimizing operational workflows.
 </p>
 
