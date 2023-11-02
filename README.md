@@ -200,7 +200,10 @@ from CTE;
   <li>By developing targeted marketing campaigns in different languages, the company can increase engagement, customer retention, and user satisfaction.
 </li>
   <br>
-  <i>Distribution of Percentage Share of Each Language:</i><li>A donut chart visually represents the distribution of percentage share for each language, emphasizing the dominant languages and revealing potential opportunities for targeted marketing efforts.</li>
+  <i>Distribution of Percentage Share of Each Language:</i>
+    ![donut chart](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/07201260-2c38-4565-8d54-60e42c73506c)
+<br>
+    <li>A donut chart visually represents the distribution of percentage share for each language, emphasizing the dominant languages and revealing potential opportunities for targeted marketing efforts.</li>
  
   <br>
   <i>Conclusion:</i><br>
@@ -434,7 +437,8 @@ group by week_Num;
   
   <i>Weekly User Engagement Visualization<i>
   <br>
-    image
+    ![weekly user engagement](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/02ba9218-c69c-4f8b-9ec9-21c4d82d0087)
+
   <i>Significant Observation:<i><br>
   Notably, week_num 17 onwards experienced a drastic increase in user engagement. However, a sudden decrease in engagement is observed towards the end of the week.
   
@@ -478,7 +482,11 @@ from CTE;
   <li>Tracking user acquisition patterns provides insights into the effectiveness of strategies to attract and retain users.</li>
   <br>
   <i>User Growth Visualization:<i>
-    image
+      <br>
+      
+    ![user growth analysis](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/e4cc273f-d568-4b26-87f9-829b168c259c)
+    
+<br>
     <p><b>Positive Trend Observation:</b>
 The analysis clearly indicates that user growth has been consistently increasing over the observed period.
 </p>
@@ -547,7 +555,11 @@ order by RW);
   <li>Retention rate trends reveal the company's ability to maintain user interest and engagement over extended periods.</li>
   <li>Understanding when and why users drop off can guide strategies to improve user experiences and increase retention.</li>
   <i>Weekly Retention Visualization:</i>
-  image
+    <br>
+    
+  ![retention Analysis](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/ed1a5a89-523a-4927-b5a0-b98cc3230d6e)
+
+<br>
   <p><b>Retention Trend Observation:</b>
 Based on the analysis, the retention rates exhibit a decreasing trend, suggesting the need for further investigation into potential retention strategies.
 </p>
@@ -591,7 +603,11 @@ group by 1,2,3;
   <li>Identifying spikes or dips in engagement on specific devices can guide resource allocation and user experience improvements.</li>
   <br>
   <i>Weekly Engagement Per Device Visualization:</i>
-  image
+  <br>
+  
+  ![weekly user engagement](https://github.com/SushmaRaasi/Operation-Analytics-and-Investigating-Metric-Spike/assets/79751402/277e2ce5-2a2d-42dd-bc59-6bff3ef400eb)
+
+<br>
   <i>Device Preference Observation:</i>
 Based on the analysis, mobile devices exhibit the highest engagement levels, while desktop engagement shows fluctuations over time.
   <i>Conclusion:</i><br>
