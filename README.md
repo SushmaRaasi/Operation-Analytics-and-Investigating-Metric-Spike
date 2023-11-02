@@ -13,7 +13,7 @@
           - [Duplicate rows Detection](#duplicate-rows-detection)
 - [Case Study 2 Investigating Metric Spike](#case-study-2-investigating-metric-spike)
       - [Dataset](#dataset)
-      - [Data Cleaning , Exploring, Manipulation  for USERS Table](#data-cleaning-exploring-manipulation-for-users-table)
+      - [Data Cleaning,Exploring,Manipulation for USERS Table](#data-cleaning-exploring-manipulation-for-users-table)
       
   
 
