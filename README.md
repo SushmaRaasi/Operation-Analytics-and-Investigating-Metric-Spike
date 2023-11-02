@@ -9,6 +9,9 @@
     - [Insights](#insights)
           - [Jobs Reviewed Over Time](#jobs-reviewed-over-time)
           - [Throughput](#throughput)
+          - [Language Share Analysis](#language-share-analysis)
+          - [Duplicate rows Detection](#duplicate-rows-detection)
+- [Case Study 2 Investigating Metric Spike](#case-study-2-investigating-metric-spike)
       
   
 
@@ -151,7 +154,8 @@ from CTE;
   <li>The insights gained enable the company to proactively manage operational resources and ensure efficient workflow management.</li>
 </ul><br>
 
-<b>3)Language Share Analysis:</b>
+##### Language Share Analysis
+</b>
 <p>To gain insights into user language preferences, a language share analysis was conducted to calculate the percentage share of each language over the last 30 days. This analysis aimed to provide valuable information to the Marketing Team for targeted marketing campaigns and enhanced user engagement.</p>
 
 ```SQL
@@ -204,7 +208,8 @@ from CTE;
 [Percentage Share of each Language](https://docs.google.com/spreadsheets/d/1fasyPXb_HOtG_iLDEeP2DzbyDJFjIGSVA1wLFTZh8iU/edit#gid=1781774857)
 <br>
 <br>
-<b>4)Duplicate rows Detection:</b>
+##### Duplicate rows Detection
+</b>
 <br>
 <p>To ensure data accuracy and maintain a reliable database, an analysis was conducted to detect and address duplicate records within the dataset. This analysis aimed to improve data quality and contribute to informed decision-making based on reliable information.
 </p>
@@ -257,7 +262,7 @@ Addressing duplicates contributes to maintaining a trustworthy and efficient dat
 </ul>
 <br>
 
-### Case Study 2: Investigating Metric Spike
+### Case Study 2 Investigating Metric Spike
 #### Dataset 
 
 1)[Users DataSet](https://docs.google.com/spreadsheets/d/1NY9W5fW2DU3Db5uEAi0allOk9G8M-hxHokZ3CLpjQbA/edit#gid=492277679)
